@@ -20,6 +20,7 @@ html {
 
 body {
   background-color: var(--background-color);
+  transition: all 0.5s linear;
 }
 
 a {
@@ -27,6 +28,23 @@ a {
 }
 
 /* -------- */
+
+
+#loading-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #020C1B;
+  z-index: 1;
+  display: flex;
+
+}
+
+#loading-screen #logo {
+  margin: auto;
+}
+
+
 
 header {
   display: flex;
@@ -38,7 +56,6 @@ header {
 
 }
 
-
 #logo {
   width: 75px;
   height: 75px;
@@ -48,18 +65,16 @@ header {
 
 .hexagon {
   position: absolute;
-
 }
 
 .hexagon.is-hover {
   transition: all 0.2s ease-out;
 }
 
-.hexagon.is-hover:hover {
+#main-screen #logo .hexagon.is-hover:hover {
   transform: translate(-4px, -2px);
   transition: all ease-in 0.2s;
 }
-
 
 .nav-list {
   list-style: none;
@@ -71,8 +86,6 @@ header {
 
 .nav-item {
   font-size: 14px;
-
-
 }
 
 .nav-item-link {
@@ -82,7 +95,6 @@ header {
 
 .nav-item-link:hover {
   color: var(--primary-color);
-
 }
 
 .nav-item-stt {
@@ -91,7 +103,6 @@ header {
 
 .resume-wrapper {
   position: relative;
-
 }
 
 .resume-container-1 {
