@@ -69,6 +69,7 @@ header {
 
 .hexagon.is-hover {
   transition: all 0.2s ease-out;
+  cursor: pointer;
 }
 
 .hexagon.is-hover:hover {
