@@ -40,4 +40,6 @@ function start() {
 }
 start();
 
+function logic() {
 
+}
