@@ -1,18 +1,21 @@
 const loadingScreen = document.querySelector("#loading-screen");
 
 
-function handleLoadingScreen() {
+const hideLoadingScreen = () => {
     setTimeout(() => {
         loadingScreen.style.display = "none";
     }, 2000);
 }
-handleLoadingScreen();
+
+const showLoadingScreen = () => {
+    loadingScreen.style.display = "flex";
+}
 
 
 const logoElement = document.querySelector(".hexagon.is-hover");
 if (logoElement) {
     logoElement.onclick = () => {
-        loadingScreen.style.display = "flex";
+        showLoadingScreen();
         loadingScreen.innerHTML = `
          <div id="logo">
             <svg class="hexagon" width="130" height="130" viewBox="0 0 360 280"
@@ -28,7 +31,11 @@ if (logoElement) {
             </svg>
         </div>
         `
-        handleLoadingScreen();
+        hideLoadingScreen();
     }
 }
 
+function start() {
+    hideLoadingScreen();
+}
+start();
