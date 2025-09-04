@@ -59,10 +59,18 @@ function chucnangB() {
 }
 
 function taicautruc1() {
-    
+
 }
 
 function taicautruc123() {
-    
+
+}
+
+function daylachucnang() {
+    return "abc";
+}
+
+function daylahamtai() {
+    return "tai";
 }
 
