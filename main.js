@@ -40,10 +40,3 @@ function start() {
 }
 start();
 
-function logic() {
-
-}
-
-function taicautruc() {
-    
-}
