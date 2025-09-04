@@ -39,3 +39,30 @@ function start() {
     hideLoadingScreen();
 }
 start();
+
+
+function C() {
+    return;
+}
+
+
+function chucnangA() {
+
+}
+
+function taicautruc() {
+
+}
+
+function chucnangB() {
+
+}
+
+function taicautruc1() {
+    
+}
+
+function taicautruc123() {
+    
+}
+
