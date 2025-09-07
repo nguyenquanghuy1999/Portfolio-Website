@@ -39,4 +39,5 @@ function start() {
     hideLoadingScreen();
 }
 start();
+start();
 
