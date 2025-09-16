@@ -88,9 +88,16 @@ header {
 
 .nav-item {
   font-size: 14px;
-
-
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: all ease 0.3s;
 }
+
+.nav-item.show-nav-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .nav-item-link {
   color: var(--text-color);
