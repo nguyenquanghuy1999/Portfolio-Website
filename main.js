@@ -109,3 +109,4 @@ if (menuIconEl) {
 }
 
 console.log("test");
+console.log("test");
