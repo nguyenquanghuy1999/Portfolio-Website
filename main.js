@@ -19,7 +19,12 @@ function showLoadingScreen() {
 function handleResetSidebar() {
     navListEL.classList.remove("show");
     closeIcon.style.display = "none";
-    menuIconEl.style.display = "block";
+    console.log(window.screen.width);
+
+    //tablet and mobile
+    if (window.screen.width <= 1023) {
+        menuIconEl.style.display = "block";
+    }
 
 }
 
@@ -76,6 +81,7 @@ function handleAnimateNavItems() {
 
     }
 }
+
 const menuIconEl = document.querySelector('.menu-icon');
 const navListEL = document.querySelector(".nav-list");
 
@@ -99,6 +105,7 @@ if (closeIcon) {
     })
 
 }
+
 if (menuIconEl) {
     menuIconEl.addEventListener("click", () => {
         navListEL.classList.add("show");

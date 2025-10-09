@@ -8,7 +8,6 @@
     }
 
     .nav-list {
-
         position: absolute;
         top: 0;
         right: -100%;
@@ -23,23 +22,22 @@
         display: none;
     }
 
+    /* 
     .nav-list::before {
         content: "";
         width: 100vh;
         height: 100vh;
         position: fixed;
         z-index: -1;
-    }
+    } */
 
     .nav-list.show {
         display: flex;
         animation: sidebar-in 0.2s ease forwards;
-
     }
 
 
     @keyframes sidebar-in {
-
         from {
             right: -100%;
         }
@@ -50,9 +48,7 @@
     }
 
 
-    .nav-item:last-child,
-    .resume-container-1,
-    .resume-container-2 {
+    .nav-item:last-child .resume-container-2 {
         width: 140px;
     }
 
