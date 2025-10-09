@@ -7,8 +7,6 @@ function start() {
 start();
 
 
-
-
 function hideLoadingScreen() {
     setTimeout(() => {
         loadingScreen.style.display = "none";
@@ -18,12 +16,20 @@ function hideLoadingScreen() {
 function showLoadingScreen() {
     loadingScreen.style.display = "flex";
 }
+function handleResetSidebar() {
+    navListEL.classList.remove("show");
+    closeIcon.style.display = "none";
+    menuIconEl.style.display = "block";
 
+}
 
 function handleClickLogo() {
     const logoElement = document.querySelector(".hexagon.is-hover");
     if (logoElement) {
-        logoElement.onclick = () => {
+        logoElement.addEventListener("click", () => {
+
+            handleResetSidebar();
+
             showLoadingScreen();
             loadingScreen.innerHTML = `
             <div id="logo">
@@ -43,13 +49,12 @@ function handleClickLogo() {
 
             // chạy lại animate nav items
             handleAnimateNavItems();
-        }
+        })
     }
 }
 handleClickLogo();
 
 function handleAnimateNavItems() {
-    const navItems = document.querySelectorAll(".nav-item");
 
     const handleDelayItems = (el, i) => {
         const delay = 2 + i * 0.1;
@@ -58,6 +63,7 @@ function handleAnimateNavItems() {
         }, delay * 1000);
     }
 
+    const navItems = document.querySelectorAll(".nav-item");
     if (navItems) {
         navItems.forEach((el, i) => {
             if (el.classList.contains("show-nav-item")) {
@@ -70,4 +76,36 @@ function handleAnimateNavItems() {
 
     }
 }
+const menuIconEl = document.querySelector('.menu-icon');
+const navListEL = document.querySelector(".nav-list");
+
+const closeIcon = document.querySelector(".close-sidebar");
+if (closeIcon) {
+    closeIcon.addEventListener("click", () => {
+        navListEL.classList.remove("show");
+
+        // navlist off
+        navListEL.animate(
+            [
+                { right: 0, display: "flex" },
+                { right: -100 + "%", display: "none" }
+            ],
+            {
+                duration: 200
+            }
+        )
+        closeIcon.style.display = "none";
+        menuIconEl.style.display = "block";
+    })
+
+}
+if (menuIconEl) {
+    menuIconEl.addEventListener("click", () => {
+        navListEL.classList.add("show");
+        closeIcon.style.display = "block";
+        menuIconEl.style.display = "none";
+    }
+    )
+}
+
 

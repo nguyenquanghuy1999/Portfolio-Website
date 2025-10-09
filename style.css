@@ -16,6 +16,7 @@
 html {
   font-family: sans-serif;
 
+
 }
 
 body {
@@ -25,6 +26,17 @@ body {
 a {
   text-decoration: none;
 }
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  width: 100%;
+  height: 100px;
+
+}
+
 
 /* -------- */
 
@@ -42,16 +54,20 @@ a {
   margin: auto;
 }
 
+#main-screen {
+  width: 100%;
+  display: flex;
 
+}
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
-  width: 100%;
+  padding: 0 30px;
+  width: 1200px;
   height: 100px;
-
+  margin: auto;
 }
 
 
@@ -142,4 +158,12 @@ header {
 .resume-container-2:hover {
   transform: translate(-4px, -2px);
   transition: all ease-in 0.2s;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.close-sidebar {
+  display: none;
 }
