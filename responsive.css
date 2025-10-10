@@ -1,8 +1,19 @@
+/* desktop */
+@media (min-width: 1024px) {
+    .menu-icon {
+        display: none !important;
+    }
+
+    .close-sidebar {
+        display: none !important;
+    }
+}
+
 /* tablet */
 @media (max-width: 1023px) {
 
 
-    header {
+    header {            
         position: relative;
 
     }

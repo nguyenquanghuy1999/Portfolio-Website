@@ -111,7 +111,6 @@ if (menuIconEl) {
         navListEL.classList.add("show");
         closeIcon.style.display = "block";
         menuIconEl.style.display = "none";
-    }
-    )
+    })
 }
 
