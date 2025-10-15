@@ -4,7 +4,7 @@
         display: none !important;
     }
 
-    .close-sidebar {
+    .sidebar-close-icon {
         display: none !important;
     }
 }
@@ -13,7 +13,7 @@
 @media (max-width: 1023px) {
 
 
-    header {            
+    header {
         position: relative;
 
     }
@@ -73,7 +73,7 @@
         animation: rotate 0.3s ease;
     }
 
-    .close-sidebar {
+    .sidebar-close-icon {
         --start-rotate: -90deg;
         --end-rotate: 0deg;
         display: block;

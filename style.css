@@ -55,17 +55,20 @@ a {
 }
 
 #main-screen {
-  width: 100%;
   display: flex;
+  flex-direction: column;
 
 }
+
+/* header */
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   height: 100px;
   margin: auto;
 }
@@ -114,6 +117,17 @@ header {
   transform: translateY(0);
 }
 
+.hero-item {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all ease 0.5s;
+}
+
+.hero-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .nav-item-link {
   color: var(--text-color);
@@ -129,19 +143,19 @@ header {
   color: var(--primary-color);
 }
 
-.resume-wrapper {
+.resume {
   position: relative;
 
 }
 
-.resume-container-1 {
+.resume-btn {
   width: 82px;
   height: 38px;
   background-color: var(--primary-color);
   border-radius: 3px;
 }
 
-.resume-container-2 {
+.resume-link {
   position: absolute;
   top: 0;
   width: 82px;
@@ -155,7 +169,7 @@ header {
   transition: all 0.2s ease-out;
 }
 
-.resume-container-2:hover {
+.resume-link:hover {
   transform: translate(-4px, -2px);
   transition: all ease-in 0.2s;
 }
@@ -164,6 +178,83 @@ header {
   display: none;
 }
 
-.close-sidebar {
+.sidebar-close-icon {
   display: none;
+}
+
+/* ------ end header ----- */
+
+
+/*------ content------- */
+.main-content {
+  display: flex;
+  justify-content: center;
+}
+
+.hero {
+  max-width: 1200px;
+  padding: 100px 30px;
+
+}
+
+.hero-title {
+  font-size: 16px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.hero-name,
+.hero-subtitle {
+  font-size: 80px;
+  color: var(--title-color);
+}
+
+.hero-subtitle {
+  color: var(--text-color);
+}
+
+.hero-text {
+  font-size: 20px;
+  color: var(--text-color);
+  max-width: 603px;
+  margin-top: 20px;
+
+}
+
+.hero-link {
+  color: var(--primary-color);
+}
+
+.hero-course {
+  position: relative;
+  top: 50px;
+
+}
+
+.hero-course-btn {
+  width: 216px;
+  height: 59px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  padding: 10px 30px;
+
+
+}
+
+.hero-course-link {
+  position: absolute;
+  padding: 10px 30px;
+  top: 0;
+  background-color: var(--background-color);
+  border-radius: 3px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  text-align: center;
+  line-height: 38px;
+  transition: all 0.2s ease-out;
+}
+
+.hero-course-link:hover {
+  transform: translate(-5px, -3px);
+  transition: all ease-in 0.2s;
 }

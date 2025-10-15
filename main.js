@@ -3,6 +3,7 @@ const loadingScreen = document.querySelector("#loading-screen");
 function start() {
     hideLoadingScreen();
     handleAnimateNavItems();
+    handleAnimateHeroItems();
 }
 start();
 
@@ -19,7 +20,6 @@ function showLoadingScreen() {
 function handleResetSidebar() {
     navListEL.classList.remove("show");
     closeIcon.style.display = "none";
-    console.log(window.screen.width);
 
     //tablet and mobile
     if (window.screen.width <= 1023) {
@@ -54,25 +54,32 @@ function handleClickLogo() {
 
             // chạy lại animate nav items
             handleAnimateNavItems();
+            // chạy lại animate hero items
+            handleAnimateHeroItems();
         })
     }
 }
 handleClickLogo();
 
 function handleAnimateNavItems() {
+    handleAnimate(".nav-item", "show-nav-item", 2);
+}
+
+
+function handleAnimate(el, className, delayTime) {
 
     const handleDelayItems = (el, i) => {
-        const delay = 2 + i * 0.1;
+        const delay = delayTime + i * 0.1;
         setTimeout(() => {
-            el.classList.add("show-nav-item");
+            el.classList.add(className);
         }, delay * 1000);
     }
 
-    const navItems = document.querySelectorAll(".nav-item");
-    if (navItems) {
-        navItems.forEach((el, i) => {
-            if (el.classList.contains("show-nav-item")) {
-                el.classList.remove("show-nav-item");
+    const elements = document.querySelectorAll(el);
+    if (elements) {
+        elements.forEach((el, i) => {
+            if (el.classList.contains(className)) {
+                el.classList.remove(className);
                 handleDelayItems(el, i);
             } else {
                 handleDelayItems(el, i);
@@ -82,35 +89,47 @@ function handleAnimateNavItems() {
     }
 }
 
+function handleAnimateHeroItems() {
+    handleAnimate(".hero-item", "show", 3);
+}
+
+
+
+
 const menuIconEl = document.querySelector('.menu-icon');
 const navListEL = document.querySelector(".nav-list");
+const closeIcon = document.querySelector(".sidebar-close-icon");
 
-const closeIcon = document.querySelector(".close-sidebar");
-if (closeIcon) {
-    closeIcon.addEventListener("click", () => {
-        navListEL.classList.remove("show");
+function handleSidebar() {
 
-        // navlist off
-        navListEL.animate(
-            [
-                { right: 0, display: "flex" },
-                { right: -100 + "%", display: "none" }
-            ],
-            {
-                duration: 200
-            }
-        )
-        closeIcon.style.display = "none";
-        menuIconEl.style.display = "block";
-    })
+    if (closeIcon) {
+        closeIcon.addEventListener("click", () => {
+            navListEL.classList.remove("show");
+
+            // navlist off
+            navListEL.animate(
+                [
+                    { right: 0, display: "flex" },
+                    { right: -100 + "%", display: "none" }
+                ],
+                {
+                    duration: 200
+                }
+            )
+            closeIcon.style.display = "none";
+            menuIconEl.style.display = "block";
+        })
+
+    }
+
+    if (menuIconEl) {
+        menuIconEl.addEventListener("click", () => {
+            navListEL.classList.add("show");
+            closeIcon.style.display = "block";
+            menuIconEl.style.display = "none";
+        })
+    }
 
 }
 
-if (menuIconEl) {
-    menuIconEl.addEventListener("click", () => {
-        navListEL.classList.add("show");
-        closeIcon.style.display = "block";
-        menuIconEl.style.display = "none";
-    })
-}
-
+handleSidebar();
