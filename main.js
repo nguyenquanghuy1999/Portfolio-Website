@@ -8,6 +8,7 @@ function start() {
 start();
 
 
+
 function hideLoadingScreen() {
     setTimeout(() => {
         loadingScreen.style.display = "none";
@@ -133,3 +134,21 @@ function handleSidebar() {
 }
 
 handleSidebar();
+
+function handleScrollAnimate() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            } else {
+                entry.target.classList.remove("show");
+            }
+
+        });
+    });
+
+    const hiddenElements = document.querySelector(".about");
+    observer.observe(hiddenElements);
+}
+handleScrollAnimate();
+

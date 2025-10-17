@@ -33,15 +33,6 @@
         display: none;
     }
 
-    /* 
-    .nav-list::before {
-        content: "";
-        width: 100vh;
-        height: 100vh;
-        position: fixed;
-        z-index: -1;
-    } */
-
     .nav-list.show {
         display: flex;
         animation: sidebar-in 0.2s ease forwards;
