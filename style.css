@@ -297,7 +297,7 @@ header {
   position: absolute;
   margin-left: 20px;
   margin-top: 18px;
-  width: 300px;
+  width: 200px;
   height: 1px;
   background-color: #233554;
 }
@@ -324,7 +324,7 @@ header {
   color: var(--primary-color);
 }
 
-.about-skils-list {
+.about-skills-list {
   color: var(--text-color);
   display: flex;
   height: 80px;
@@ -332,13 +332,13 @@ header {
   list-style: none;
 }
 
-.about-skils-item {
+.about-skills-item {
   width: 200px;
   position: relative;
   padding-left: 20px;
 }
 
-.about-skils-item::before {
+.about-skills-item::before {
   content: "▹";
   position: absolute;
   font-size: 20px;
@@ -407,4 +407,129 @@ header {
 .about-img-wrapper:not(:hover)::after {
   transform: translate(0, 0);
   transition: transform ease 0.3s;
+}
+
+.jobs {
+  display: flex;
+  margin: 100px 0;
+  height: 100vh;
+
+}
+
+.job-wrapper {
+  max-width: 700px;
+}
+
+.job-heading {
+  font-size: 32px;
+  color: var(--title-color);
+  position: relative;
+}
+
+.job-heading::before {
+  content: "02. ";
+  color: var(--primary-color);
+}
+
+.job-heading::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  margin-left: 15px;
+  width: 200px;
+  height: 1px;
+  background-color: #233554;
+
+}
+
+
+.job-inner {
+  display: flex;
+  color: var(--text-color);
+  margin-top: 50px;
+}
+
+.job-tab-list {
+  list-style: none;
+  position: relative;
+}
+
+.job-tab-item {
+  width: 138px;
+  height: 42px;
+  border-left: 2px solid #233554;
+  line-height: 42px;
+  padding-left: 20px;
+  cursor: pointer;
+
+}
+
+.job-tab-item:hover {
+  color: var(--primary-color);
+  background-color: #112240;
+  transition: all ease 0.3s;
+}
+
+.job-tab-item.active {
+  color: var(--primary-color);
+  background-color: #112240;
+}
+
+.job-tab-list .line {
+  content: "";
+  position: absolute;
+  left: 1px;
+  width: 1px;
+  background-color: var(--primary-color);
+  transition: all ease 0.3s;
+}
+
+
+
+.job-desc {
+  padding-top: 7px;
+  padding-left: 20px;
+  width: 542px;
+}
+
+.job-desc-wrapper {
+  display: none;
+}
+
+.job-desc-wrapper.active {
+  display: block;
+}
+
+
+
+.job-position {
+  color: var(--title-color);
+}
+
+.job-company-link {
+  color: var(--primary-color);
+  margin-left: 5px;
+}
+
+.job-range {
+  font-size: 14px;
+  margin-top: 7px;
+}
+
+.task-list {
+  margin-top: 25px;
+  list-style: none;
+}
+
+.task-item {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 30px;
+}
+
+.task-item::before {
+  position: absolute;
+  left: 0;
+  content: "▹";
+  color: var(--primary-color);
 }
