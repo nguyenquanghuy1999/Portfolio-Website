@@ -15,13 +15,19 @@
 
 html {
   font-family: sans-serif;
-
+  scroll-behavior: smooth;
 
 }
 
 body {
   background-color: var(--background-color);
+  opacity: 1;
+  transition: opacity ease 0.3s;
 
+}
+
+body.loading {
+  overflow: hidden;
 }
 
 a {
@@ -198,6 +204,18 @@ header {
 
 }
 
+section {
+  opacity: 0;
+  transform: translateY(100px);
+
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all ease 1s;
+}
+
 .hero {
   padding: 100px 30px;
 
@@ -268,20 +286,11 @@ header {
 
 .about {
   margin: 100px 0px;
-  opacity: 0;
-  transform: translateY(50px);
-
-
 }
 
-.about.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all ease 1s;
-}
-
-
-.about-heading {
+.about-heading,
+.job-heading,
+.project-heading {
   font-size: 32px;
   color: var(--title-color);
   position: relative;
@@ -292,7 +301,9 @@ header {
   color: var(--primary-color);
 }
 
-.about-heading::after {
+.about-heading::after,
+.job-heading::after,
+.project-heading::after {
   content: "";
   position: absolute;
   margin-left: 20px;
@@ -412,7 +423,6 @@ header {
 .jobs {
   display: flex;
   margin: 100px 0;
-  height: 100vh;
 
 }
 
@@ -420,26 +430,9 @@ header {
   max-width: 700px;
 }
 
-.job-heading {
-  font-size: 32px;
-  color: var(--title-color);
-  position: relative;
-}
-
 .job-heading::before {
   content: "02. ";
   color: var(--primary-color);
-}
-
-.job-heading::after {
-  content: "";
-  position: absolute;
-  top: 17px;
-  margin-left: 15px;
-  width: 200px;
-  height: 1px;
-  background-color: #233554;
-
 }
 
 
@@ -498,8 +491,18 @@ header {
 
 .job-desc-wrapper.active {
   display: block;
+  animation: fade-up ease 0.5s;
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
 
 
 .job-position {
@@ -532,4 +535,150 @@ header {
   left: 0;
   content: "▹";
   color: var(--primary-color);
+}
+
+.projects {
+  padding-top: 100px;
+  height: 1000vh;
+}
+
+
+.project-heading::before {
+  content: "03. ";
+  color: var(--primary-color);
+}
+
+
+.project-list {
+  margin-top: 40px;
+}
+
+.project-item {
+  display: flex;
+  opacity: 0;
+  transform: translateY(100px);
+  margin-bottom: 100px;
+}
+
+.project-item.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all ease 1s;
+}
+
+.project-img {
+  max-width: 580px;
+  max-height: 358px;
+}
+
+.project-item-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+}
+
+
+.project-item-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  mix-blend-mode: multiply;
+}
+
+.project-item-link:hover::after {
+  background-color: rgba(0, 0, 0, 0);
+  transition: all ease 0.3s;
+}
+
+.project-item-link:not(:hover)::after {
+  opacity: 1;
+  transition: all ease 0.3s;
+}
+
+
+.project-img .project-item-link img {
+  width: 580px;
+  height: 100%;
+
+
+}
+
+.project-content {
+  text-align: right;
+  position: relative;
+  width: 495px;
+  left: -50px;
+}
+
+.project-badge {
+  font-size: 14px;
+  color: var(--primary-color);
+  margin: 10px 0;
+}
+
+.project-title {
+  font-size: 28px;
+  color: var(--title-color);
+  margin: 10px 0;
+}
+
+.project-desc {
+  font-size: 16px;
+  color: var(--text-color);
+  padding: 25px;
+  margin-top: 20px;
+  background-color: #112240;
+  text-align: right;
+  min-width: 467px;
+
+}
+
+.project-desc-link {
+  color: var(--primary-color);
+}
+
+.project-tech-list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+}
+
+.project-tech-item {
+  font-size: 14px;
+  color: var(--text-color);
+  margin-left: 15px;
+}
+
+.project-icons {
+  margin-top: 20px;
+}
+
+.project-icon-link {
+  color: var(--title-color);
+  margin-left: 10px;
+}
+
+
+.project-item:nth-child(2) .project-content,
+.project-item:nth-child(2) .project-desc {
+  order: -1;
+  text-align: left;
+  left: 50px;
+  z-index: 1;
+
+}
+
+.project-item:nth-child(2) .project-tech-list {
+  justify-content: flex-start;
+}
+
+.project-item:nth-child(2) .project-tech-item {
+  margin: 0 15px 0 0;
 }

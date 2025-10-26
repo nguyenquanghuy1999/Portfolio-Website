@@ -1,11 +1,26 @@
 const loadingScreen = document.querySelector("#loading-screen");
 
 function start() {
+    handlePageLoading();
     hideLoadingScreen();
     handleAnimateNavItems();
     handleAnimateHeroItems();
 }
 start();
+
+function handlePageLoading() {
+    window.addEventListener("load", scrollToTop);
+}
+
+function scrollToTop() {
+    history.scrollRestoration = "manual";
+    document.body.classList.add("loading");
+
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+        document.body.classList.remove("loading");
+    }, 2000);
+}
 
 
 
@@ -57,6 +72,9 @@ function handleClickLogo() {
             handleAnimateNavItems();
             // chạy lại animate hero items
             handleAnimateHeroItems();
+
+            scrollToTop();
+
         })
     }
 }
@@ -141,14 +159,18 @@ function handleScrollAnimate() {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("show");
-            } else {
-                entry.target.classList.remove("show");
             }
+            // else {
+            //     entry.target.classList.remove("show");
+            // }
 
         });
     });
 
-    observer.observe(document.querySelector(".about"));
+    document.querySelectorAll("section").forEach((item) => observer.observe(item));
+    document.querySelectorAll(".project-item").forEach((item) => observer.observe(item));
+
+
 }
 handleScrollAnimate();
 
