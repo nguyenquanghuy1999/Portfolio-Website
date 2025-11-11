@@ -1,4 +1,6 @@
 const loadingScreen = document.querySelector("#loading-screen");
+const projectOtherItemEls = document.querySelectorAll(".project-other-item");
+
 
 function start() {
     handlePageLoading();
@@ -34,7 +36,7 @@ function showLoadingScreen() {
     loadingScreen.style.display = "flex";
 }
 function handleResetSidebar() {
-    navListEL.classList.remove("show");
+    navListEl.classList.remove("show");
     closeIcon.style.display = "none";
 
     //tablet and mobile
@@ -85,8 +87,7 @@ function handleAnimateNavItems() {
 }
 
 
-function handleAnimate(el, className, delayTime) {
-
+function handleAnimate(selector, className, delayTime = 0) {
     const handleDelayItems = (el, i) => {
         const delay = delayTime + i * 0.1;
         setTimeout(() => {
@@ -94,17 +95,15 @@ function handleAnimate(el, className, delayTime) {
         }, delay * 1000);
     }
 
-    const elements = document.querySelectorAll(el);
-    if (elements) {
-        elements.forEach((el, i) => {
-            if (el.classList.contains(className)) {
-                el.classList.remove(className);
-                handleDelayItems(el, i);
-            } else {
-                handleDelayItems(el, i);
+    const elements = document.querySelectorAll(selector);
+    if (elements.length > 0) {
+        elements.forEach((item, index) => {
+            if (item.classList.contains(className)) {
+                item.classList.remove(className);
+                handleDelayItems(item, index);
             }
+            handleDelayItems(item, index);
         })
-
     }
 }
 
@@ -113,20 +112,18 @@ function handleAnimateHeroItems() {
 }
 
 
-
-
 const menuIconEl = document.querySelector('.menu-icon');
-const navListEL = document.querySelector(".nav-list");
+const navListEl = document.querySelector(".nav-list");
 const closeIcon = document.querySelector(".sidebar-close-icon");
 
 function handleSidebar() {
 
     if (closeIcon) {
         closeIcon.addEventListener("click", () => {
-            navListEL.classList.remove("show");
+            navListEl.classList.remove("show");
 
             // navlist off
-            navListEL.animate(
+            navListEl.animate(
                 [
                     { right: 0, display: "flex" },
                     { right: -100 + "%", display: "none" }
@@ -143,7 +140,7 @@ function handleSidebar() {
 
     if (menuIconEl) {
         menuIconEl.addEventListener("click", () => {
-            navListEL.classList.add("show");
+            navListEl.classList.add("show");
             closeIcon.style.display = "block";
             menuIconEl.style.display = "none";
         })
@@ -154,23 +151,27 @@ function handleSidebar() {
 handleSidebar();
 
 function handleScrollAnimate() {
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add("show");
+                // get index handle animation in projectOtherItemEls
+                const index = entry.target.dataset.index;
+                entry.target.style.transitionDelay = index ? `${index * 0.15}s` : null;
+
+                // add class show  for elements: project-other-items, sections, project-items
+                entry.target.classList.add('show');
             }
-            // else {
-            //     entry.target.classList.remove("show");
-            // }
-
         });
-    });
+    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
 
-    document.querySelectorAll("section").forEach((item) => observer.observe(item));
-    document.querySelectorAll(".project-item").forEach((item) => observer.observe(item));
+    projectOtherItemEls
+        .forEach((item, i) => {
+            item.dataset.index = i % 3; // 3 cột → delay theo cột (0,1,2)
+            item.dataset.indexItem = i;
+            observer.observe(item);
+        });
 
-
+    document.querySelectorAll("section, .project-item").forEach((item) => observer.observe(item));
 }
 handleScrollAnimate();
 
@@ -295,4 +296,43 @@ function handleTabListJobs() {
 }
 handleTabListJobs();
 
+function handleClickBtnProjectOther() {
+    const showMoreBtn = document.querySelector(".project-other-btn-link");
+    const projectOtherListEl = document.querySelector(".project-other-list");
 
+    if (showMoreBtn && projectOtherListEl) {
+        showMoreBtn.addEventListener("click", e => {
+            e.preventDefault();
+            projectOtherItemEls.forEach(item => {
+                if (showMoreBtn.innerHTML == "Show More") {
+                    if (item.dataset.indexItem > 5) {
+                        item.classList.add("show");
+                        item.style.transitionDelay = `${item.dataset.index * 0.15}s`;
+                    }
+                }
+                if (showMoreBtn.innerHTML == "Show Less") {
+                    if (item.dataset.indexItem > 5) {
+                        item.classList.remove("show")
+                    }
+                }
+            })
+            projectOtherListEl.classList.toggle("show-all");
+            showMoreBtn.innerHTML = projectOtherListEl.classList.contains('show-all') ? "Show Less" : "Show More";
+        })
+    }
+}
+handleClickBtnProjectOther();
+
+
+function handleProjectOtherItemMouseLeave() {
+    if (projectOtherItemEls) {
+        projectOtherItemEls.forEach(item => {
+            item.addEventListener('mouseleave', () => {
+                item.style.transition = "all ease 0.3s";
+            })
+        })
+
+    }
+}
+
+handleProjectOtherItemMouseLeave()
