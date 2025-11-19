@@ -250,13 +250,15 @@ section.show {
 }
 
 .hero-course,
-.project-other-more {
+.project-other-more,
+.contact-btn {
   position: relative;
   top: 50px;
 }
 
 .hero-course-btn,
-.project-other-btn {
+.project-other-btn,
+.contact-btn-wrapper {
   width: 216px;
   height: 59px;
   background-color: var(--primary-color);
@@ -265,7 +267,8 @@ section.show {
 }
 
 .hero-course-link,
-.project-other-btn-link {
+.project-other-btn-link,
+.contact-btn-link {
   position: absolute;
   width: 216px;
   height: 59px;
@@ -279,8 +282,10 @@ section.show {
   transition: all 0.2s ease-out;
 }
 
+
 .hero-course-link:hover,
-.project-other-btn-link:hover {
+.project-other-btn-link:hover,
+.contact-btn-link:hover {
   transform: translate(-5px, -3px);
   transition: all ease-in 0.2s;
 }
@@ -367,15 +372,11 @@ section.show {
   width: 300px;
   height: 300px;
   position: relative;
+  transition: all ease 0.3s;
 }
 
 .about-img-wrapper:hover {
   transform: translate(-5px, -5px);
-  transition: transform ease 0.3s;
-}
-
-.about-img-wrapper:not(:hover) {
-  transform: translate(0, 0);
   transition: transform ease 0.3s;
 }
 
@@ -407,16 +408,12 @@ section.show {
   background-color: var(--background-color);
   border: 3px solid var(--primary-color);
   border-radius: 3px;
-  z-index: -1
+  z-index: -1;
+  transition: all ease 0.3s;
 }
 
 .about-img-wrapper:hover::after {
   transform: translate(10px, 10px);
-  transition: transform ease 0.3s;
-}
-
-.about-img-wrapper:not(:hover)::after {
-  transform: translate(0, 0);
   transition: transform ease 0.3s;
 }
 
@@ -589,15 +586,11 @@ section.show {
   height: 100%;
   background-color: var(--primary-color);
   mix-blend-mode: multiply;
+  transition: all ease 0.3s;
 }
 
 .project-item-link:hover::after {
   background-color: rgba(0, 0, 0, 0);
-  transition: all ease 0.3s;
-}
-
-.project-item-link:not(:hover)::after {
-  opacity: 1;
   transition: all ease 0.3s;
 }
 
@@ -730,6 +723,10 @@ section.show {
 }
 
 
+.project-other-item.show:hover .project-other-title {
+  color: var(--primary-color);
+  transition: all ease 0.5s;
+}
 
 .project-other-link {}
 
