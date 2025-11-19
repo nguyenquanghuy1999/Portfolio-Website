@@ -778,3 +778,128 @@ section.show {
   height: 54px;
   line-height: 54px;
 }
+
+#contact {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-heading {
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+.contact-title {
+  font-size: 57px;
+  color: var(--title-color);
+  margin: 15px 0;
+}
+
+.contact-desc {
+  width: 662px;
+  color: var(--text-color);
+  font-size: 20px;
+  text-align: center;
+}
+
+.contact-btn-link,
+.contact-btn-wrapper {
+  width: 136px;
+  height: 54px;
+  line-height: 54px;
+}
+
+#footer {
+  margin-top: 300px;
+  height: 70px;
+  width: 100%;
+  text-align: center;
+  line-height: 70px;
+}
+
+.footer-content {
+  font-size: 15px;
+  color: var(--text-color);
+}
+
+.social-sidebar {
+  position: fixed;
+  left: 50px;
+  bottom: 0;
+}
+
+.social-list {
+  list-style: none;
+}
+
+.social-list::after {
+  content: "";
+  display: block;
+  width: 1.5px;
+  height: 90px;
+  background: var(--text-color);
+  position: relative;
+  left: 10px;
+  margin-top: 30px;
+
+}
+
+.social-item {
+  margin: 15px 0;
+}
+
+
+.social-item-link {
+  display: block;
+
+}
+
+.social-item-link svg {
+  stroke: var(--text-color);
+  transform: translateY(0);
+  transition: all ease 0.3s;
+}
+
+.social-item-link svg:hover {
+  transform: translateY(-5px);
+  stroke: var(--primary-color);
+  transition: all ease 0.3s;
+
+}
+
+
+.email-sidebar {
+  position: fixed;
+  right: 15px;
+  bottom: 0;
+}
+
+.email-sidebar::after {
+  content: "";
+  display: block;
+  text-align: right;
+  width: 1.5px;
+  height: 90px;
+  background-color: var(--text-color);
+  position: relative;
+  left: 147px;
+}
+
+.email-sidebar a {
+  position: relative;
+  left: 50px;
+  color: var(--text-color);
+  display: block;
+  transform: rotate(90deg);
+  margin-bottom: 122px;
+  transition: all ease 0.3s;
+
+}
+
+.email-sidebar a:hover {
+  color: var(--primary-color);
+  margin-bottom: 130px;
+  transition: all ease 0.3s;
+}
