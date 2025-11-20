@@ -54,17 +54,19 @@ a {
   background-color: #020C1B;
   z-index: 1;
   display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
 #loading-screen #logo {
-  margin: auto;
+  width: 130px;
+  height: 130px;
 }
 
 #main-screen {
   display: flex;
   flex-direction: column;
-
 
 }
 
@@ -81,12 +83,17 @@ header {
   margin: auto;
 }
 
-
-#logo {
+#main-screen #logo {
   width: 75px;
   height: 75px;
   position: relative;
+  opacity: 0;
 
+}
+
+#main-screen #logo.show {
+  opacity: 1;
+  transition: all ease 0.3s;
 }
 
 .hexagon {
@@ -825,6 +832,7 @@ section.show {
   position: fixed;
   left: 50px;
   bottom: 0;
+  opacity: 0;
 }
 
 .social-list {
@@ -871,6 +879,13 @@ section.show {
   position: fixed;
   right: 15px;
   bottom: 0;
+  opacity: 0;
+}
+
+.email-sidebar.show,
+.social-sidebar.show {
+  opacity: 1;
+  transition: all ease 1s;
 }
 
 .email-sidebar::after {

@@ -5,8 +5,11 @@ const projectOtherItemEls = document.querySelectorAll(".project-other-item");
 function start() {
     handlePageLoading();
     hideLoadingScreen();
-    handleAnimateNavItems();
-    handleAnimateHeroItems();
+    handleAnimate("#logo", "show", 2);
+    handleAnimate(".nav-item", "show-nav-item", 2.5);
+    handleAnimate(".hero-item", "show", 3.5);
+    handleAnimate(".social-sidebar", "show", 4.5);
+    handleAnimate(".email-sidebar", "show", 4.5);
 }
 start();
 
@@ -36,18 +39,14 @@ function hideLoadingScreen() {
 function handleClickLogo() {
     const logoElement = document.querySelector(".hexagon.is-hover");
     if (logoElement) {
-        logoElement.addEventListener("click", () => location.reload()); 
+        logoElement.addEventListener("click", () => location.reload());
     }
 }
 handleClickLogo();
 
-function handleAnimateNavItems() {
-    handleAnimate(".nav-item", "show-nav-item", 2);
-}
-
 
 function handleAnimate(selector, className, delayTime = 0) {
-    const handleDelayItems = (el, i) => {
+    const handleDelayItems = (el, i = 0) => {
         const delay = delayTime + i * 0.1;
         setTimeout(() => {
             el.classList.add(className);
@@ -56,19 +55,13 @@ function handleAnimate(selector, className, delayTime = 0) {
 
     const elements = document.querySelectorAll(selector);
     if (elements.length > 0) {
-        elements.forEach((item, index) => {
-            if (item.classList.contains(className)) {
-                item.classList.remove(className);
-                handleDelayItems(item, index);
-            }
-            handleDelayItems(item, index);
-        })
+        elements.forEach((item, index) => handleDelayItems(item, index));
+    } else {
+        handleDelayItems(selector);
     }
 }
 
-function handleAnimateHeroItems() {
-    handleAnimate(".hero-item", "show", 3);
-}
+
 
 
 const menuIconEl = document.querySelector('.menu-icon');
