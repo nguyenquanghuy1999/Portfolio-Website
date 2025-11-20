@@ -1,7 +1,6 @@
 const loadingScreen = document.querySelector("#loading-screen");
 const projectOtherItemEls = document.querySelectorAll(".project-other-item");
 
-
 function start() {
     handlePageLoading();
     hideLoadingScreen();
@@ -54,15 +53,10 @@ function handleAnimate(selector, className, delayTime = 0) {
     }
 
     const elements = document.querySelectorAll(selector);
-    if (elements.length > 0) {
-        elements.forEach((item, index) => handleDelayItems(item, index));
-    } else {
-        handleDelayItems(selector);
-    }
+    if (elements.length > 0) elements.forEach((item, index) => handleDelayItems(item, index));
+    else handleDelayItems(selector);
+
 }
-
-
-
 
 const menuIconEl = document.querySelector('.menu-icon');
 const navListEl = document.querySelector(".nav-list");
@@ -114,7 +108,7 @@ function handleScrollAnimate() {
                 entry.target.classList.add('show');
             }
         });
-    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    });
 
     projectOtherItemEls
         .forEach((item, i) => {
