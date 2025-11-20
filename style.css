@@ -223,7 +223,7 @@ section.show {
   transition: all ease 1s;
 }
 
-.hero {
+#hero {
   padding: 100px 30px;
 
 }
@@ -255,6 +255,8 @@ section.show {
 .hero-link {
   color: var(--primary-color);
 }
+
+
 
 .hero-course,
 .project-other-more,
@@ -297,8 +299,12 @@ section.show {
   transition: all ease-in 0.2s;
 }
 
-.about {
-  margin: 100px 0px;
+#about,
+#jobs,
+#projects,
+#project-other,
+#contact {
+  padding: 100px 0px;
 }
 
 .about-heading,
@@ -424,10 +430,8 @@ section.show {
   transition: transform ease 0.3s;
 }
 
-.jobs {
+#jobs {
   display: flex;
-  margin: 100px 0;
-
 }
 
 .job-wrapper {
@@ -541,9 +545,7 @@ section.show {
   color: var(--primary-color);
 }
 
-.projects {
-  padding-top: 100px;
-}
+
 
 
 .project-heading::before {
@@ -684,8 +686,7 @@ section.show {
   margin: 0 15px 0 0;
 }
 
-.project-other {
-  padding-top: 100px;
+#project-other {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -784,7 +785,6 @@ section.show {
 }
 
 #contact {
-  margin-top: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -816,7 +816,7 @@ section.show {
 }
 
 #footer {
-  margin-top: 300px;
+  margin-top: 220px;
   height: 70px;
   width: 100%;
   text-align: center;
