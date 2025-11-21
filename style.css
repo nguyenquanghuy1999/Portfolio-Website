@@ -448,6 +448,7 @@ section.show {
   display: flex;
   color: var(--text-color);
   margin-top: 50px;
+  height: 319px;
 }
 
 .job-tab-list {
