@@ -62,6 +62,18 @@ a {
 #loading-screen #logo {
   width: 130px;
   height: 130px;
+  animation: scale-down ease 0.3s 1.8s;
+}
+
+
+@keyframes scale-down {
+  from {  
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0);
+  }
 }
 
 #main-screen {
