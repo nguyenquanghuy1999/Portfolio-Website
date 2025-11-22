@@ -58,43 +58,72 @@ function handleAnimate(selector, className, delayTime = 0) {
 
 }
 
-const menuIconEl = document.querySelector('.menu-icon');
-const navListEl = document.querySelector(".nav-list");
-const closeIcon = document.querySelector(".sidebar-close-icon");
 
 function handleSidebar() {
 
-    if (closeIcon) {
-        closeIcon.addEventListener("click", () => {
-            navListEl.classList.remove("show");
+    const bodyEl = document.querySelector("body");
+    const menuIconEl = document.querySelector('.menu-icon');
+    const navListEl = document.querySelector(".nav-list");
+    const navWrapperEl = document.querySelector(".nav-wrapper");
+    const closeIcon = document.querySelector(".sidebar-close-icon");
+    const navItemEl = document.querySelectorAll(".nav-item-link");
 
-            // navlist off
-            navListEl.animate(
-                [
-                    { right: 0, display: "flex" },
-                    { right: -100 + "%", display: "none" }
-                ],
-                {
-                    duration: 200
-                }
-            )
+    const sidebarOut = (animate = true) => {
+
+        const handleSidebarOut = () => {
+            navWrapperEl.classList.remove("show");
             closeIcon.style.display = "none";
             menuIconEl.style.display = "block";
-        })
+            bodyEl.classList.remove("no-scroll");
+        }
 
+        if (animate) {
+            navListEl.animate(
+                [
+                    { transform: 'translateX(0)' },
+                    { transform: 'translateX(392px)' }
+                ],
+                { duration: 150, fill: "forwards" }
+            )
+            setTimeout(handleSidebarOut, 150);
+        } else {
+            handleSidebarOut();
+        }
     }
 
+
+    const sidebarIn = () => {
+        navListEl.animate(
+            [
+                { transform: 'translateX(392px)' },
+                { transform: 'translateX(0)' }
+            ],
+            { duration: 150, fill: "forwards" }
+        )
+        navWrapperEl.classList.add("show");
+        closeIcon.style.display = "block";
+        menuIconEl.style.display = "none";
+        bodyEl.classList.add("no-scroll");
+    }
+
+    if (navItemEl) {
+        navItemEl.forEach(item => item.addEventListener("click", () => sidebarOut(false)));
+    }
+    
     if (menuIconEl) {
-        menuIconEl.addEventListener("click", () => {
-            navListEl.classList.add("show");
-            closeIcon.style.display = "block";
-            menuIconEl.style.display = "none";
-        })
+        menuIconEl.addEventListener("click", sidebarIn)
     }
+
+    if (closeIcon) {
+        closeIcon.addEventListener("click", sidebarOut);
+    }
+
 
 }
 
 handleSidebar();
+
+
 
 function handleScrollAnimate() {
     const observer = new IntersectionObserver((entries) => {
