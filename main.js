@@ -1,5 +1,7 @@
 const loadingScreen = document.querySelector("#loading-screen");
 const projectOtherItemEls = document.querySelectorAll(".project-other-item");
+const bodyEl = document.body;
+
 
 function start() {
     handlePageLoading();
@@ -9,20 +11,33 @@ function start() {
     handleAnimate(".hero-item", "show", 3.5);
     handleAnimate(".social-sidebar", "show", 4.5);
     handleAnimate(".email-sidebar", "show", 4.5);
+
+
 }
+
 start();
 
+
 function handlePageLoading() {
-    window.addEventListener("load", scrollToTop);
+    window.addEventListener("load", () => {
+        let hash = location.hash;
+        if (hash) {
+            const el = document.querySelector(hash);
+            setTimeout(() => el.scrollIntoView(), 2000)
+        } else {
+            scrollToTop();
+        }
+    });
+
 }
 
 function scrollToTop() {
     history.scrollRestoration = "manual";
-    document.body.classList.add("loading");
+    bodyEl.classList.add("loading");
 
     window.scrollTo(0, 0);
     setTimeout(() => {
-        document.body.classList.remove("loading");
+        bodyEl.classList.remove("loading");
     }, 2000);
 }
 
@@ -61,12 +76,12 @@ function handleAnimate(selector, className, delayTime = 0) {
 
 function handleSidebar() {
 
-    const bodyEl = document.querySelector("body");
     const menuIconEl = document.querySelector('.menu-icon');
-    const navListEl = document.querySelector(".nav-list");
     const navWrapperEl = document.querySelector(".nav-wrapper");
-    const closeIcon = document.querySelector(".sidebar-close-icon");
+    const navListEl = document.querySelector(".nav-list");
     const navItemEl = document.querySelectorAll(".nav-item-link");
+    const closeIcon = document.querySelector(".sidebar-close-icon");
+
 
     const sidebarOut = (animate = true) => {
 
@@ -109,7 +124,7 @@ function handleSidebar() {
     if (navItemEl) {
         navItemEl.forEach(item => item.addEventListener("click", () => sidebarOut(false)));
     }
-    
+
     if (menuIconEl) {
         menuIconEl.addEventListener("click", sidebarIn)
     }
@@ -311,4 +326,4 @@ function handleProjectOtherItemMouseLeave() {
     }
 }
 
-handleProjectOtherItemMouseLeave(); 
+handleProjectOtherItemMouseLeave();
