@@ -38,7 +38,7 @@ handleHeaderScrollOnMobileAndTablet();
 
 function handlePageLoading() {
     window.addEventListener("load", () => {
-        let hash = location.hash;
+        const hash = location.hash;
         if (hash) {
             const el = document.querySelector(hash);
             setTimeout(() => el.scrollIntoView(), 2000)
