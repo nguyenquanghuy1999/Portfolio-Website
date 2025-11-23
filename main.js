@@ -7,6 +7,7 @@ function start() {
     handlePageLoading();
     hideLoadingScreen();
     handleAnimate("#logo", "show", 2);
+    handleAnimate(".menu-icon", "show", 2);
     // animation on mobile/tablet
     if (window.outerWidth < 1024) {
         handleAnimate(".hero-item", "show", 2.5);

@@ -67,7 +67,13 @@
         --end-rotate: 0deg;
         display: block;
         width: 30px;
+        opacity: 0;
         animation: rotate 0.1s ease;
+    }
+
+    .menu-icon.show {
+        opacity: 1;
+        transition: all ease 0.3s;
     }
 
     .sidebar-close-icon {
