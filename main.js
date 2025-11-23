@@ -7,11 +7,15 @@ function start() {
     handlePageLoading();
     hideLoadingScreen();
     handleAnimate("#logo", "show", 2);
+    if (window.outerWidth < 1024) {
+        handleAnimate(".hero-item", "show", 2.5);
+    } else {
+        handleAnimate(".hero-item", "show", 3.5);
+    }
+
     handleAnimate(".nav-item", "show-nav-item", 2.5);
-    handleAnimate(".hero-item", "show", 3.5);
     handleAnimate(".social-sidebar", "show", 4.5);
     handleAnimate(".email-sidebar", "show", 4.5);
-
 
 }
 
