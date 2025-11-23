@@ -48,6 +48,7 @@
 
     .nav-wrapper.show {
         display: block;
+        height: 100vh;
 
     }
 
