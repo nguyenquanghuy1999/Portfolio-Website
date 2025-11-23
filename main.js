@@ -23,6 +23,19 @@ function start() {
 start();
 
 
+
+function handleHeaderScrollOnMobileAndTablet() {
+    window.addEventListener("scroll", () => {
+        const headerEl = document.querySelector("header");
+        if (Math.floor(scrollY) >= 30) {
+            headerEl.classList.add("off");
+        } else {
+            headerEl.classList.remove("off");
+        }
+    })
+}
+handleHeaderScrollOnMobileAndTablet();
+
 function handlePageLoading() {
     window.addEventListener("load", () => {
         let hash = location.hash;

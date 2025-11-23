@@ -11,6 +11,25 @@
         overflow: hidden;
     }
 
+    header {
+        position: fixed;
+        z-index: 1;
+        background-color: var(--background-color);
+        transform: translateY(0);
+        opacity: 1;
+        transition: all ease 0.3s;
+    }
+
+    header.off {
+        transform: translateY(-100px);
+        opacity: 0;
+        transition: all ease 0.3s;
+    }
+
+    #hero {
+        margin-top: 100px;
+    }
+
     .social-sidebar,
     .email-sidebar {
         display: none;
