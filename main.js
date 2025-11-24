@@ -17,12 +17,20 @@ function start() {
     handleAnimate(".nav-item", "show-nav-item", 2.5);
     handleAnimate(".social-sidebar", "show", 4.5);
     handleAnimate(".email-sidebar", "show", 4.5);
-
+    handleResize();
 }
-
 start();
 
 
+function handleResize() {
+    window.addEventListener("resize", () => {
+        if (window.outerWidth > 1024) {
+            hideSidebar(false, false);
+        } else {
+            hideSidebar(false, true);
+        }
+    })
+}
 
 function handleHeaderScrollOnMobileAndTablet() {
     window.addEventListener("scroll", () => {
@@ -91,74 +99,77 @@ function handleAnimate(selector, className, delayTime = 0) {
 
 }
 
+const closeIconEl = document.querySelector(".sidebar-close-icon");
+const menuIconEl = document.querySelector('.menu-icon');
 
-function handleSidebar() {
-
-    if (window.outerWidth < 1024) {
-
-        const menuIconEl = document.querySelector('.menu-icon');
-        const navWrapperEl = document.querySelector(".nav-wrapper");
-        const navListEl = document.querySelector(".nav-list");
-        const navItemEl = document.querySelectorAll(".nav-item-link");
-        const closeIcon = document.querySelector(".sidebar-close-icon");
+const navWrapperEl = document.querySelector(".nav-wrapper");
+const navListEl = document.querySelector(".nav-list");
+const navItemEl = document.querySelectorAll(".nav-item-link");
 
 
-        const sidebarOut = (animate = true) => {
+function hideSidebar(animate = true, showMenuIcon = true) {
 
-            const handleSidebarOut = () => {
-                navWrapperEl.classList.remove("show");
-                closeIcon.style.display = "none";
-                menuIconEl.style.display = "block";
-                bodyEl.classList.remove("no-scroll");
-            }
+    const processHideSidebar = () => {
 
-            if (animate) {
-                navListEl.animate(
-                    [
-                        { transform: 'translateX(0)' },
-                        { transform: 'translateX(392px)' }
-                    ],
-                    { duration: 150, fill: "forwards" }
-                )
-                setTimeout(handleSidebarOut, 150);
-            } else {
-                handleSidebarOut();
-            }
-        }
+        navWrapperEl.classList.remove("show");
+        closeIconEl.style.display = "none";
 
-
-
-        const sidebarIn = () => {
-            navListEl.animate(
-                [
-                    { transform: 'translateX(392px)' },
-                    { transform: 'translateX(0)' }
-                ],
-                { duration: 150, fill: "forwards" }
-            )
-            navWrapperEl.classList.add("show");
-            closeIcon.style.display = "block";
+        if (showMenuIcon) {
+            menuIconEl.style.display = "block"
+        } else {
             menuIconEl.style.display = "none";
-            bodyEl.classList.add("no-scroll");
         }
 
-        if (navItemEl) {
-            navItemEl.forEach(item => item.addEventListener("click", () => sidebarOut(false)));
-        }
-
-        if (menuIconEl) {
-            menuIconEl.addEventListener("click", sidebarIn);
-        }
-
-        if (closeIcon) {
-            closeIcon.addEventListener("click", sidebarOut);
-        }
+        bodyEl.classList.remove("no-scroll");
     }
 
+    if (animate) {
+        navListEl.animate(
+            [
+                { transform: 'translateX(0)' },
+                { transform: 'translateX(392px)' }
+            ],
+            { duration: 160 }
+        )
+        setTimeout(processHideSidebar, 150);
+    } else {
+        processHideSidebar();
+    }
 }
 
 
-handleSidebar();
+function showSidebar() {
+    navListEl.animate(
+        [
+            { transform: 'translateX(392px)' },
+            { transform: 'translateX(0)' }
+        ],
+        { duration: 150, fill: "forwards" }
+    )
+    navWrapperEl.classList.add("show");
+    closeIconEl.style.display = "block";
+    menuIconEl.style.display = "none";
+    bodyEl.classList.add("no-scroll");
+}
+
+
+function initSidebar() {
+
+    if (navItemEl) {
+        navItemEl.forEach(item => item.addEventListener("click", () => hideSidebar(false)));
+    }
+
+    if (menuIconEl) {
+        menuIconEl.addEventListener("click", showSidebar);
+    }
+
+    if (closeIconEl) {
+        closeIconEl.addEventListener("click", hideSidebar);
+    }
+
+}
+initSidebar();
+
 
 
 

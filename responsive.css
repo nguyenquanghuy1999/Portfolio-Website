@@ -1,3 +1,16 @@
+/* desktop */
+@media (min-width: 1024px) {
+
+    .menu-icon {
+        display: none !important;
+    }
+
+    .sidebar-close-icon {
+        display: none !important;
+    }
+
+
+}
 
 /* tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
@@ -122,6 +135,8 @@
 
 
 }
+
+
 
 /* mobile and tablet */
 @media (max-width: 1023px) {}
