@@ -588,8 +588,8 @@ section.show {
 
 
 .project-img {
-  max-width: 580px;
-  max-height: 358px;
+  width: 580px;
+  height: 358px;
 }
 
 .project-item-link {
@@ -617,8 +617,7 @@ section.show {
   transition: all ease 0.3s;
 }
 
-
-.project-img .project-item-link img {
+.project-item-link img {
   width: 580px;
   height: 100%;
 
@@ -685,8 +684,8 @@ section.show {
 
 .project-item:nth-child(2) .project-content,
 .project-item:nth-child(2) .project-desc {
-  order: -1;
   text-align: left;
+  order: -1;
   left: 50px;
   z-index: 1;
 
