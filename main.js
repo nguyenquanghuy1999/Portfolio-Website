@@ -5,7 +5,7 @@ const bodyEl = document.body;
 
 function start() {
     handlePageLoading();
-    // hideLoadingScreen();
+    hideLoadingScreen();
     handleAnimate("#logo", "show", 2);
     handleAnimate(".menu-icon", "show", 2);
     // animation on mobile/tablet
@@ -183,13 +183,32 @@ function handleScrollAnimate() {
 
                 // add class show  for elements: project-other-items, sections, project-items
                 entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+
             }
         });
     });
 
     projectOtherItemEls
         .forEach((item, i) => {
-            item.dataset.index = i % 3; // 3 cột → delay theo cột (0,1,2)
+            const screenWidth = window.outerWidth;
+
+            // mobile
+            if (screenWidth <= 739) {
+                item.dataset.index = i % 1;
+            }
+            //tablet
+            if (screenWidth >= 740 && screenWidth <= 1023) {
+                item.dataset.index = i % 2;
+            }
+
+            // desktop
+            if (screenWidth >= 1024) {
+                item.dataset.index = i % 3; // 3 cột → delay theo cột (0,1,2)
+            }
+
+
             item.dataset.indexItem = i;
             observer.observe(item);
         });
