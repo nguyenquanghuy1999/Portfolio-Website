@@ -5,7 +5,7 @@ const bodyEl = document.body;
 
 function start() {
     handlePageLoading();
-    hideLoadingScreen();
+    // hideLoadingScreen();
     handleAnimate("#logo", "show", 2);
     handleAnimate(".menu-icon", "show", 2);
     // animation on mobile/tablet

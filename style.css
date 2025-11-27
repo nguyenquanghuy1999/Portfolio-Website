@@ -64,6 +64,7 @@ a {
 #loading-screen #logo {
   width: 130px;
   height: 130px;
+  transform-origin: center;
   animation: scale-down ease 0.3s 1.8s;
 }
 
