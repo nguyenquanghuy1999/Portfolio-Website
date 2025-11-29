@@ -682,6 +682,11 @@ section.show {
   margin-left: 10px;
 }
 
+.project-icon-link:hover {
+  color: var(--primary-color);
+}
+
+
 
 .project-item:nth-child(2) .project-content,
 .project-item:nth-child(2) .project-desc {
