@@ -183,9 +183,6 @@ function handleScrollAnimate() {
 
                 // add class show  for elements: project-other-items, sections, project-items
                 entry.target.classList.add('show');
-            } else {
-                entry.target.classList.remove('show');
-
             }
         });
     });
@@ -315,8 +312,14 @@ function handleTabListJobs() {
     const lineEl = document.querySelector(".job-tab-list .line");
     const tabItemActive = document.querySelector(".job-tab-item.active");
 
-    lineEl.style.top = tabItemActive.offsetTop + "px";
-    lineEl.style.height = tabItemActive.offsetHeight + "px";
+    if (window.outerWidth <= 739) {
+        lineEl.style.left = tabItemActive.offsetBottom + "px";
+        lineEl.style.width = tabItemActive.offsetWidth + "px";
+        lineEl.style.height = "1px";
+    } else {
+        lineEl.style.top = tabItemActive.offsetTop + "px";
+        lineEl.style.height = tabItemActive.offsetHeight + "px";
+    }
 
     const jobDescWrapperEl = document.querySelectorAll(".job-desc-wrapper");
     jobDescWrapperEl[0].classList.add("active");
@@ -327,8 +330,13 @@ function handleTabListJobs() {
                 document.querySelector(".job-tab-item.active").classList.remove("active");
                 document.querySelector(".job-desc-wrapper.active").classList.remove("active");
 
-                lineEl.style.top = item.offsetTop + "px";
-                lineEl.style.height = item.offsetHeight + "px";
+                if (window.outerWidth <= 739) {
+                    lineEl.style.left = item.offsetLeft + "px";
+                    lineEl.style.width = item.offsetWidth + "px";
+                } else {
+                    lineEl.style.top = item.offsetTop + "px";
+                    lineEl.style.height = item.offsetHeight + "px";
+                }
 
                 item.classList.add("active");
                 jobDescWrapperEl[index].classList.add("active");

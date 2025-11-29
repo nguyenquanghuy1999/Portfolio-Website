@@ -391,9 +391,6 @@ section.show {
 
 }
 
-.about-desc-right {}
-
-.about-right-wrapper {}
 
 .about-img-wrapper {
   width: 300px;
@@ -621,7 +618,7 @@ section.show {
 .project-item-link img {
   width: 580px;
   height: 100%;
-
+  object-fit: cover;
 
 }
 
