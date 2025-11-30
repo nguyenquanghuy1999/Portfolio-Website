@@ -88,7 +88,6 @@ a {
 }
 
 /* header */
-
 header {
   position: fixed;
   top: 0;
@@ -238,9 +237,6 @@ header.off {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-
-
 }
 
 section {
@@ -581,8 +577,6 @@ section.show {
   content: "▹";
   color: var(--primary-color);
 }
-
-
 
 
 .project-heading::before {
@@ -936,16 +930,12 @@ section.show {
 .email-sidebar::after {
   content: "";
   display: block;
-  text-align: right;
   width: 1.5px;
   height: 90px;
   background-color: var(--text-color);
-  position: relative;
-  left: 147px;
 }
 
 .email-sidebar a {
-  position: relative;
   left: 50px;
   color: var(--text-color);
   display: block;
