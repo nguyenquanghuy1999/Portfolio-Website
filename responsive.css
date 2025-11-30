@@ -1,5 +1,9 @@
 /* desktop */
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
+
+    #main-screen {
+        align-items: normal;
+    }
 
     .menu-icon {
         display: none !important;
@@ -9,6 +13,56 @@
         display: none !important;
     }
 
+    .main-content {
+        padding: 0 100px;
+    }
+
+    #about {
+        max-width: 780px;
+    }
+
+    .about-desc-left {
+        max-width: 450px;
+    }
+
+    #projects,
+    #project-other {
+        width: 100%;
+        padding: 100px 20px;
+    }
+
+
+
+    .project-img {
+        min-width: 476px;
+    }
+
+    .project-content {
+        left: -160px;
+
+    }
+
+    .project-item:nth-child(2) .project-content,
+    .project-item:nth-child(2) .project-desc {
+        left: 0;
+    }
+
+    .project-item:nth-child(2) .project-img {
+        position: relative;
+        left: -160px;
+    }
+
+    .project-other-item {
+        padding: 5px;
+    }
+
+    .email-sidebar {
+        right: 25px;
+    }
+
+    .social-sidebar {
+        left: 25px;
+    }
 
 }
 
