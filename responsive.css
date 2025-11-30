@@ -68,6 +68,9 @@
 
 /* mobile and tablet */
 @media (max-width: 1023px) {
+    #main-screen {
+        align-items: normal;
+    }
 
     #loading-screen .hexagon {
         position: absolute;
