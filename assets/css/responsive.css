@@ -1,10 +1,6 @@
 /* desktop */
 @media (min-width: 1024px) and (max-width: 1439px) {
 
-    #main-screen {
-        align-items: normal;
-    }
-
     .menu-icon {
         display: none !important;
     }
@@ -13,7 +9,10 @@
         display: none !important;
     }
 
+
+
     .main-content {
+        width: 100%;
         padding: 0 100px;
     }
 
@@ -32,24 +31,13 @@
     }
 
 
-
-    .project-img {
-        min-width: 476px;
-    }
-
+    .project-img,
     .project-content {
-        left: -160px;
-
+        min-width: 400px;
     }
 
-    .project-item:nth-child(2) .project-content,
-    .project-item:nth-child(2) .project-desc {
-        left: 0;
-    }
-
-    .project-item:nth-child(2) .project-img {
-        position: relative;
-        left: -160px;
+    .project-desc {
+        min-width: 100%;
     }
 
     .project-other-item {
@@ -68,9 +56,6 @@
 
 /* mobile and tablet */
 @media (max-width: 1023px) {
-    #main-screen {
-        align-items: normal;
-    }
 
     #loading-screen .hexagon {
         position: absolute;
@@ -83,8 +68,8 @@
 
     }
 
-    #main-screen {
-        overflow: hidden;
+    .main-content {
+        width: 100%;
     }
 
     header {
@@ -209,6 +194,10 @@
         padding-right: 30px;
     }
 
+    #about {
+        width: 100%;
+    }
+
     .about-heading,
     .job-heading,
     .project-heading {
@@ -227,7 +216,7 @@
     }
 
     .about-desc-left {
-        width: 100%;
+        max-width: 100%;
     }
 
     .about-skills-list {
@@ -360,9 +349,7 @@
         font-size: 18px;
     }
 
-    #about {
-        width: 100%;
-    }
+
 
     .about-heading,
     .job-heading,
