@@ -3,6 +3,7 @@ const projectOtherItemEls = document.querySelectorAll(".project-other-item");
 const bodyEl = document.body;
 
 
+
 function start() {
     handlePageLoading();
     hideLoadingScreen();
