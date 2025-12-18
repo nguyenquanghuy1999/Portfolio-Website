@@ -1,0 +1,471 @@
+/* desktop */
+@media (min-width: 1024px) and (max-width: 1439px) {
+
+    #main-screen {
+        align-items: normal;
+    }
+
+    .menu-icon {
+        display: none !important;
+    }
+
+    .sidebar-close-icon {
+        display: none !important;
+    }
+
+    .main-content {
+        padding: 0 100px;
+    }
+
+    #about {
+        max-width: 780px;
+    }
+
+    .about-desc-left {
+        max-width: 450px;
+    }
+
+    #projects,
+    #project-other {
+        width: 100%;
+        padding: 100px 20px;
+    }
+
+
+
+    .project-img {
+        min-width: 476px;
+    }
+
+    .project-content {
+        left: -160px;
+
+    }
+
+    .project-item:nth-child(2) .project-content,
+    .project-item:nth-child(2) .project-desc {
+        left: 0;
+    }
+
+    .project-item:nth-child(2) .project-img {
+        position: relative;
+        left: -160px;
+    }
+
+    .project-other-item {
+        padding: 5px;
+    }
+
+    .email-sidebar {
+        right: 25px;
+    }
+
+    .social-sidebar {
+        left: 25px;
+    }
+
+}
+
+/* mobile and tablet */
+@media (max-width: 1023px) {
+    #main-screen {
+        align-items: normal;
+    }
+
+    #loading-screen .hexagon {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50px);
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+
+    }
+
+    #main-screen {
+        overflow: hidden;
+    }
+
+    header {
+        position: fixed;
+        z-index: 1;
+        background-color: var(--background-color);
+        transform: translateY(0);
+        opacity: 1;
+        transition: all ease 0.3s;
+    }
+
+    header.off {
+        transform: translateY(-100px);
+        opacity: 0;
+        transition: all ease 0.3s;
+    }
+
+    #hero {
+        margin-top: 100px;
+    }
+
+    .social-sidebar,
+    .email-sidebar {
+        display: none;
+    }
+
+    .nav-wrapper {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: none;
+
+    }
+
+    .nav-wrapper.show {
+        display: block;
+        height: 100vh;
+
+    }
+
+    .nav-wrapper::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+
+    }
+
+
+
+    .nav-list {
+        position: absolute;
+        right: 0;
+        display: flex;
+        justify-self: end;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100%;
+        background: #112240;
+    }
+
+
+    .nav-item:last-child .resume-container-2 {
+        width: 140px;
+    }
+
+    .menu-icon {
+        --start-rotate: 90deg;
+        --end-rotate: 0deg;
+        display: block;
+        width: 30px;
+        opacity: 0;
+        animation: rotate 0.1s ease;
+    }
+
+    .menu-icon.show {
+        opacity: 1;
+        transition: all ease 0.3s;
+    }
+
+    .sidebar-close-icon {
+        --start-rotate: -90deg;
+        --end-rotate: 0deg;
+        display: block;
+        position: fixed;
+        z-index: 3;
+        right: 20px;
+        top: 28px;
+        animation: rotate 0.1s ease;
+        display: none;
+
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(var(--start-rotate));
+        }
+
+        to {
+            transform: rotate(var(--end-rotate));
+        }
+    }
+
+
+
+    .hero-name,
+    .hero-subtitle {
+        font-size: 61px;
+    }
+
+    #about,
+    #jobs,
+    #project-other,
+    #contact {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .about-heading,
+    .job-heading,
+    .project-heading {
+        overflow: hidden;
+    }
+
+    .about-heading::after,
+    .project-heading::after {
+        width: 100%;
+    }
+
+    .about-inner {
+        margin-top: 20px;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .about-desc-left {
+        width: 100%;
+    }
+
+    .about-skills-list {
+        width: 500px;
+    }
+
+    .about-desc-right {
+        margin: 50px auto 0 auto;
+    }
+
+    #jobs,
+    .job-heading::after {
+        width: 100%;
+    }
+
+    .job-wrapper {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    #projects {
+        width: 100%;
+        padding: 100px 30px;
+        position: relative;
+    }
+
+    .project-item {
+        min-height: 417px;
+        position: relative;
+    }
+
+    .project-item .project-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .project-item-link {
+        position: relative;
+    }
+
+    .project-item-link img {
+        width: 100%;
+    }
+
+    .project-content {
+        width: 100%;
+        text-align: left;
+        left: 0;
+        padding: 34px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .project-desc {
+        background-color: transparent;
+        text-align: left;
+        padding: 25px 0;
+        color: #a8b2d1;
+    }
+
+    .project-tech-list {
+        justify-content: flex-start;
+    }
+
+    .project-tech-item {
+        color: #a8b2d1;
+    }
+
+
+    .project-item-link::after {
+        background-color: var(--background-color);
+        mix-blend-mode: normal;
+        opacity: 0.8;
+    }
+
+    .project-item:nth-child(2) .project-content {
+        left: 0;
+    }
+
+    .project-item:nth-child(2) .project-desc {
+        order: 0;
+    }
+
+    #project-other {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    .project-other-item {
+        width: 50%;
+    }
+
+    #contact {
+        width: 100%;
+    }
+}
+
+/* tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .nav-list {
+        width: 50%;
+    }
+
+}
+
+/* mobile */
+@media (max-width: 739px) {
+
+    header,
+    #hero,
+    #about,
+    #jobs {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .nav-list {
+        width: 70%;
+    }
+
+    .hero-name,
+    .hero-subtitle {
+        font-size: 40px;
+    }
+
+    .hero-text {
+        font-size: 18px;
+    }
+
+    #about {
+        width: 100%;
+    }
+
+    .about-heading,
+    .job-heading,
+    .project-heading,
+    .project-other-heading {
+        font-size: 26px;
+    }
+
+    .about-text {
+        font-size: 18px;
+    }
+
+    #main-screen {
+        overflow: hidden;
+    }
+
+
+    .about-skills-item {
+        font-size: 15px;
+        width: 167px;
+    }
+
+    .about-img-wrapper {
+        width: 189px;
+        height: 189px;
+    }
+
+    .about-img-wrapper img,
+    .about-img-wrapper::before,
+    .about-img-wrapper::after {
+        width: 100%;
+        height: 100%;
+    }
+
+    .job-inner {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .job-tab-list {
+        display: flex;
+        overflow: scroll;
+        height: 50px;
+        align-items: center;
+    }
+
+    .job-tab-list .line {
+        top: unset !important;
+        left: 0;
+        bottom: 0;
+    }
+
+    .job-tab-item {
+        height: 50px;
+        line-height: 50px;
+        min-width: 116px;
+        text-align: center;
+        padding-left: 0;
+        border-left: none;
+        border-bottom: 2px solid #233554;
+    }
+
+    .job-desc {
+        padding-top: 30px;
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .project-content {
+        padding: 20px;
+    }
+
+    .project-desc {
+        min-width: 100%;
+    }
+
+    .project-tech-list {
+        flex-wrap: wrap;
+    }
+
+    .project-tech-item {
+        margin: 0 15px 0 0;
+    }
+
+    .project-other-heading {
+        text-align: center;
+    }
+
+    .project-other-list {
+        height: 1000px;
+    }
+
+    .project-other-item {
+        width: 100%;
+    }
+
+    .contact-title {
+        font-size: 40px;
+    }
+
+    .contact-desc {
+        width: 100%;
+        font-size: 18px;
+    }
+
+}
